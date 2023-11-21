@@ -2,32 +2,11 @@
 <html lang="en">
 
 <head>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Velha</title>
-    <style>
-        td {
-            background: gray;
-            font-size: 80px;
-            height: 100px;
-            width: 100px;
-            text-align: center;
-            font-style: sans-serif;
-        }
-
-        td:hover {
-            background: lightgrey;
-            cursor: pointer;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -49,34 +28,6 @@
             <td onclick="marcar(8)"></td>
         </tr>
     </table>
-    <script>
-        let jogoDaVelha = ["", "", "", "", "", "", "", "", ""];
-
-        let jogador = `X`;
-
-        function marcar(posicao) {
-            jogoDaVelha[posicao] = jogador;
-            console.log(jogoDaVelha[posicao])
-
-            if (jogador == "X") {
-                jogador = "O";
-            } else {
-                jogador = "X"
-            }
-
-            render();
-        }
-
-        function render() {
-            let tds = document.querySelectorAll("td");
-            let index = 0;
-
-            while(index < 9) {
-                tds[index].innerHTML= jogoDaVelha[index];
-                index++;
-            }
-        }
-    </script>
 </body>
 
 </html>

@@ -1,14 +1,30 @@
-let jogoDaVelha = ["","","","","","","","",""];
+let jogoDaVelha = ["", "", "", "", "", "", "", "", ""];
 
 let jogador = `X`;
 
-function marcar (posicao) {
-    jogoDaVelha[posicao] = jogador;
-    console.log(jogoDaVelha[posicao])
+function marcar(posicao) {
+    if (jogoDaVelha[posicao] == "") {
+        jogoDaVelha[posicao] = jogador;
+        console.log(jogoDaVelha[posicao])
 
-    if(jogador == "X"){
-        jogador = "O";
+        if (jogador == "X") {
+            jogador = "O";
+        } else {
+            jogador = "X"
+        }
     } else {
-        jogador = "X"
+        alert("Jogou no lugar errado champs.")
+    }
+
+    render();
+}
+
+function render() {
+    let tds = document.querySelectorAll("td");
+    let index = 0;
+
+    while (index < 9) {
+        tds[index].innerHTML = jogoDaVelha[index];
+        index++;
     }
 }
